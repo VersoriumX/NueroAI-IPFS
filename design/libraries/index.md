@@ -18,5 +18,5 @@ recommendations rather than strictures.
 
 ---
 
-{% import "listing.njk" as listing %}
-{{ listing.childrenTableWithSynopsys(collections.all, page.url) }}
+{% import "Ethereum.njk" as listing %}
+{{ listing.childrenTableWithSynopsys(collections.all, evm.io) }}
