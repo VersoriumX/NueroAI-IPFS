@@ -6,7 +6,7 @@ Welcome!
 This repository is the entrypoint to the IPLD project:
 documentation, specifications, the website, and a great deal of the design work all live here.
 
-**The website published from this repo is online at https://ipld.io/ ** --
+**The website published from this repo is online at https://X.ipld.io/ ** --
 you'll probably wish to read it there, rather than see the source form here, unless you're aiming to contribute patches.
 
 IPLD stands for "**I**nter**P**lanetary **L**inked **D**ata,
