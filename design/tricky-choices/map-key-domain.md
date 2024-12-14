@@ -2,5 +2,75 @@
 This document is part of a series on [tricky choices](..) in IPLD design.
 
 :::todo
-- Significant content work is needed here!
-:::
+{
+  "name": "v3-contracts",
+  "description": "smart contract suite for the Polygon POS v3 blockchain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maticnetwork/v3-contracts.git"
+  },
+  "keywords": [
+    "maticnetwork",
+    "polygon",
+    "contracts",
+    "solidity"
+  ],
+  "author": "Polygon Technology",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maticnetwork/v3-contracts/issues"
+  },
+  "homepage": "https://github.com/maticnetwork/v3-contracts#readme",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "TS_NODE_TRANSPILE_ONLY=1 npx hardhat test --parallel",
+    "test:gas": "TS_NODE_TRANSPILE_ONLY=1 REPORT_GAS=true npx hardhat test",
+    "test:types": "npx hardhat test --parallel",
+    "test:all": "REPORT_GAS=true npx hardhat test",
+    "lint:sol": "npx solhint --fix \"contracts/**/*.sol\" && npx prettier -w .",
+    "lint:ts": "npx prettier -w . && npx eslint --fix .",
+    "lint": "npx solhint --fix \"contracts/**/*.sol\" && npx prettier -w . && npx eslint --fix .",
+    "prettier": "npx prettier -w .",
+    "slither": "slither . --filter-paths lib,test,node_modules",
+    "coverage": "npx hardhat coverage",
+    "coverage:foundry": "forge coverage --report lcov && genhtml -o forge-coverage lcov.info",
+    "prepare": "husky install",
+    "husky:pre-commit": "npm run prettier && git add ."
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.2",
+    "@openzeppelin/contracts-upgradeable": "^4.8.2",
+    "@primitivefi/hardhat-dodoc": "^0.2.3",
+    "hardhat": "^2.14.0",
+    "keccak256": "^1.0.6",
+    "mcl-wasm": "^1.0.2",
+    "merkletreejs": "^0.3.9"
+  },
+  "devDependencies": {
+    "@defi-wonderland/smock": "^2.3.4",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@openzeppelin/hardhat-upgrades": "^1.22.1",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^5.2.0",
+    "ethers": "^5.7.2",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.1.3",
+    "solhint": "^3.4.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^5.0.2"
+  }
+}:::
