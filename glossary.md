@@ -57,7 +57,6 @@ This allows complete decentralization of the content,
 as the identifier does not specify the retrieval method nor locations,
 and does provides a secure way to verify the content (regardless of wherever it may be found from).
 
-[See more about Content-Addressing on ProtoSchool](https://proto.school/content-addressing)!
 
 #### DAG
 
@@ -150,60 +149,3 @@ To "reify" an IPLD ["node"](#node) is to attempt to wrap over it with an [ADL](#
 For example, you can reify an IPLD node which represents a HAMT into a regular node so you can get keys from it without needing to manually traverse the nodes making up the HAMT within your application.
 Reifying is most useful when you have already parsed data into a raw tree and want to wrap it in an ADL.
 
-#### Schemas
-
-IPLD Schemas are a system for describing data with structural types.
-That means Schemas can describe data, and the data either matches, or, doesn't -- and if it doesn't, you can just try a different schema.
-
-Schemas are a high-level feature in IPLD.
-You can apply them on top of data that's already legible as [Data Model](#data-model) content.
-That means IPLD Schemas are agnostic of [codecs](#codec).
-It also means they're entirely optional -- you can parse data with or without them --
-and you can use Schemas to describe and help process data even if that data _predates the Schema_.
-
-#### Selectors
-
-IPLD Selectors are a form of graph query (or, a way to specify a traversal, if you prefer that mental model) over IPLD data.
-
-Selectors are a declarative format for specifying a walk over a [Data Model](#data-model) graph.
-Selectors can specify which nodes to walk over (or not), which order to visit in, and it can mark certain positions as "matched" (in addition to just visited).
-You can think of Selectors as being roughly like "regexps for graphs".
-Libraries may yield iterators over matched nodes, or iterators over all visited nodes, or callback oriented interfaces.
-
-Selectors are natively implemented in most IPLD libraries (for performance reasons),
-but the format itself is standardized.
-The format is described in IPLD (using [IPLD Schemas](#schemas)),
-so it's possible to serialize Selectors in any [Codec](#codec) you want,
-and it's also possible to inspect (and transform!) Selector documents using standard [Data Model](#data-model) tools.
-
-#### Signalling
-
-See the [ADL Signalling](/docs/advanced-data-layouts/signalling/) page,
-and especially the [Signalling Mechanisms](/docs/advanced-data-layouts/signalling/#signalling-mechanisms).
-
-The concept of signalling could be more generalized, as well
-(multicodec indicators can be seen as a signalling mechanism for codec selection)!
-
-#### Substrate
-
-"Substrate" is a vocabulary term relating to [ADLs](#adl) -- it refers to the data "inside" them,
-as contrasted with the "synthesized view" of the data, which is the node that the ADL presents itself as.
-(The substrate may also sometimes colloquially be called "content data" or "encoded form" or other terms.)
-
-For example, in a HAMT, the forest of [nodes](#node) and [blocks](#block) that make up the sharding structure
-are all considered the "substrate" data; while the map node the HAMT presents as is the "synthesized view".
-
-#### Traversal
-
-Traversal is the act of walking across the [Data Model](#data-model).
-
-It is useful to consider the Data Model as being formed of "scalar" and "recursive"
-kinds when considering nodes and possible traversals.
-
-"Scalar" kinds are terminal nodes in the Data Model: null, boolean, integer, float, string, bytes
-
-"Recursive" kinds can contain other kinds within them and therefore allow deeper traversal: map and list.
-
-The link kind is scalar, but is typically treated as a transparent node for the purpose
-of traversal such that data spanning many blocks can be addressed as a single graph of nodes
-(so, sometimes, contextually, it can be seen as a sort of a "recursive" kind).
