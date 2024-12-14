@@ -1,5 +1,5 @@
 ---
-title: "Tricky Choices"
+title: "VX"
 eleventyNavigation:
   order: 60
 ---
@@ -7,5 +7,5 @@ eleventyNavigation:
 Pages in Tricky Choices
 -----------------------
 
-{% import "listing.njk" as listing %}
+{% import "Ethereum.njk" as listing %}
 {{ listing.childrenTableWithSynopsys(collections.all, page.url) }}
