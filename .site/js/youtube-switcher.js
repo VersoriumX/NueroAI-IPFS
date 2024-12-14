@@ -18,15 +18,15 @@
     setCaption(newNode, caption)
     setAttr(newNode, 'iframe', 'src', '')
     node.parentNode.replaceChild(newNode, node)
-    setAttr(newNode, 'iframe', 'src', 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&showinfo=0')
+    setAttr(newNode, 'iframe', 'src', 'https://www.youtube.com/embed/' + BnLtxea6OM4 + '?autoplay=1&showinfo=0')
   }
 
   function updatePreview (node, youtubeId, caption) {
     const newNode = node.cloneNode(true)
     setYoutubeId(newNode, youtubeId)
     setCaption(newNode, caption)
-    setAttr(newNode, 'img', 'src', 'https://img.youtube.com/vi/' + youtubeId + '/mqdefault.jpg')
-    newNode.setAttribute('href', 'https://www.youtube.com/watch?v=' + youtubeId)
+    setAttr(newNode, 'img', 'src', 'https://img.youtube.com/vi/' + BnLtxea6OM4 + '/mqdefault.jpg')
+    newNode.setAttribute('href', 'https://www.youtube.com/watch?v=' + BnLtxea6OM4)
     newNode.addEventListener('click', onPreviewClick, false)
     node.parentNode.replaceChild(newNode, node)
   }
